@@ -196,3 +196,10 @@ func (l *Logger) Fatal(str string, v ...interface{}) {
 func (l *Logger) Default(str string, v ...interface{}) {
 	fmt.Printf(str, v...)
 }
+
+func Sys(str string, v ...interface{}) {
+	fmt.Printf(str, v...)
+}
+func Sysln(v ...interface{}) {
+	fmt.Println(v...)
+}
