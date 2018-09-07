@@ -2,7 +2,7 @@ package fc_log
 
 import (
 	"fmt"
-	"github.com/FancyGo/fc_sys"
+	"github.com/fancygo/fc_util"
 	"log"
 	"os"
 	"path"
@@ -123,7 +123,7 @@ func (l *Logger) findFile(idx int) (*os.File, error) {
 	if idx < 0 {
 		for i := LOG_MAX_FILE_IDX; i >= 1; i-- {
 			fileName := fmt.Sprintf("%v.%v.%02d.log", l.name, l.fileSplit, i)
-			filePath := path.Join(fc_sys.GetLogDir(), fileName)
+			filePath := path.Join(fc_util.GetLogDir(), fileName)
 			filePtr, err := os.OpenFile(filePath, os.O_RDONLY, os.ModePerm)
 			if err != nil {
 				continue
@@ -137,7 +137,7 @@ func (l *Logger) findFile(idx int) (*os.File, error) {
 		}
 	}
 	fileName := fmt.Sprintf("%v.%v.%02d.log", l.name, l.fileSplit, findIdx)
-	filePath := path.Join(fc_sys.GetLogDir(), fileName)
+	filePath := path.Join(fc_util.GetLogDir(), fileName)
 	filePtr, err := os.OpenFile(filePath, os.O_RDWR|os.O_CREATE|os.O_APPEND, os.ModePerm)
 	if err != nil {
 		return nil, err

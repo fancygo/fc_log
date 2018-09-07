@@ -1,13 +1,13 @@
 package main
 
 import (
-	"github.com/FancyGo/fc_log"
-	_ "github.com/FancyGo/fc_sys"
+	"github.com/fancygo/fc_log"
+	_ "github.com/fancygo/fc_util"
 	"time"
 )
 
 func main() {
-	log, err := fc_log.NewLogger("test", fc_log.LV_TRACE, fc_log.LOG_OUTPUT_FILE)
+	log, err := fc_log.NewLogger("test", fc_log.LV_TRACE, fc_log.LOG_OUTPUT_SF)
 	if err != nil {
 		log.Default("new logger err = %v\n", err)
 		return
