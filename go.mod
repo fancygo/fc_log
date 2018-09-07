@@ -1,1 +1,1 @@
-module fc_log
+module github.com/fancygo/fc_log
